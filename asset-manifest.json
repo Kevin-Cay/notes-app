@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/https//kevin-cay.github.io/notes-app/static/css/main.b9f6c710.chunk.css",
+    "main.js": "/https//kevin-cay.github.io/notes-app/static/js/main.19ca17fd.chunk.js",
+    "main.js.map": "/https//kevin-cay.github.io/notes-app/static/js/main.19ca17fd.chunk.js.map",
+    "runtime-main.js": "/https//kevin-cay.github.io/notes-app/static/js/runtime-main.a273d56b.js",
+    "runtime-main.js.map": "/https//kevin-cay.github.io/notes-app/static/js/runtime-main.a273d56b.js.map",
+    "static/js/2.cfa7d656.chunk.js": "/https//kevin-cay.github.io/notes-app/static/js/2.cfa7d656.chunk.js",
+    "static/js/2.cfa7d656.chunk.js.map": "/https//kevin-cay.github.io/notes-app/static/js/2.cfa7d656.chunk.js.map",
+    "index.html": "/https//kevin-cay.github.io/notes-app/index.html",
+    "static/css/main.b9f6c710.chunk.css.map": "/https//kevin-cay.github.io/notes-app/static/css/main.b9f6c710.chunk.css.map",
+    "static/js/2.cfa7d656.chunk.js.LICENSE.txt": "/https//kevin-cay.github.io/notes-app/static/js/2.cfa7d656.chunk.js.LICENSE.txt",
+    "static/media/noteImage.a4a8b030.png": "/https//kevin-cay.github.io/notes-app/static/media/noteImage.a4a8b030.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a273d56b.js",
+    "static/js/2.cfa7d656.chunk.js",
+    "static/css/main.b9f6c710.chunk.css",
+    "static/js/main.19ca17fd.chunk.js"
+  ]
+}
