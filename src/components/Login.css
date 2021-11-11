@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.contentLog {
+    min-width: 300px;
+    width: 100%;
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+}
+
+.imgContainer {
+    margin-top: 25px;
+    width: 200px;
+}
+
+.imgContainer>img {
+    width: 100%;
+}
+
+.formStyle {
+    display: flex;
+    flex-direction: column;
+    max-width: 450px;
+    width: 90%;
+}
+
+.formStyle>label {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.buttonSubmit {
+    width: 50%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1.5px black solid;
+    margin: 10px 0;
+    cursor: pointer;
+    background-color: #84b6f4;
+}
+
+button {
+    padding: 7px 10px;
+    border: 1.5px black solid;
+    background-color: #84b6f4;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.googleButton {
+    background-color: #ff0d00;
+    color: white;
+}
+
+.error {
+    color: red;
+}

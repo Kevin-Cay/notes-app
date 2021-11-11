@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react'
+import Home from './components/Home';
+import {Log} from './components/Log';
+import {auth, onAuthStateChanged } from './firebase/firebase_config'
 
 function App() {
+  const [userGlobal, setUserGlobal] = useState(null);
+
+
+    //to see how the state of the user is changing 
+  onAuthStateChanged(auth, (userFirebase)=>{
+    userFirebase? setUserGlobal(userFirebase) : setUserGlobal(null)
+  })
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {userGlobal ? <Home userEmail={userGlobal.email} />: <Log/>}
+    </>
   );
 }
 
