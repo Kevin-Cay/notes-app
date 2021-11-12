@@ -1,15 +1,21 @@
 import React from 'react'
 import { AddNote } from './AddNote'
 import { Note } from './Note'
+import moment from 'moment'
 
 export const NotesList = ({notes, handleAddNote, handleDeleteNote}) => {
+
+    //notes.docs.map((doc) =>( console.log(doc.data().date, doc.data().text)))
+    
     return (
+      //setNotes(result.docs.map((note) => ({id: note.id, date: moment(note.data().date.toDate()).calendar() , data: note.data()})))
+
         <div className='notes-list' >
-            {notes.map((note) =>(
+            {  notes.map((note) =>(
                 <Note 
                 id={note.id} 
-                text={note.data.text} 
-                // date={note.data.}  
+                text={note.data().text} 
+                date={moment(note.data().date.toDate()).calendar()}  
                 handleDeleteNote={handleDeleteNote}
                 />           
             ))}         

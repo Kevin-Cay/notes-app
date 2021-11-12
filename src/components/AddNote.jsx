@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
+import {VscDebugRestart} from 'react-icons/vsc'
 import db from '../firebase/firebase_config'
-import {collection, addDoc} from "firebase/firestore";
+import {collection, addDoc} from "../firebase/firebase_config";
 
 export const AddNote = ({handleAddNote}) => {
     const [noteText, setNoteText] = useState('')
@@ -13,18 +14,15 @@ export const AddNote = ({handleAddNote}) => {
         }
     }
 
+    const handleResetText = () =>{
+        setNoteText('')
+    }
+
     async function handleSaveClick(){
-        try {
-                const response = await addDoc(collection(db, "notas"),{
-                    text: noteText,
-                    date: new Date()
-                });
-                console.log('Nota escrita con id: ', response.id);
+                handleAddNote(noteText)
+                console.log('Send text ');
                 setNoteText('')
-            
-        } catch (error) {
-            console.log(error);
-        }
+         
     }
     
 
@@ -35,8 +33,9 @@ export const AddNote = ({handleAddNote}) => {
             rows="8"
             value={noteText}
             onChange={handleChange} 
-            placeholder='Write a new note...' 
+            placeholder='Type to add a note here...' 
             ></textarea>
+            <VscDebugRestart size={"1.5rem"} style={{cursor: "pointer"}}  onClick={handleResetText} />
             <div className="note-footer">
                 <small>{characterLimit - noteText.length} available characters</small>
                 <button className='save' onClick={handleSaveClick} >Save</button>

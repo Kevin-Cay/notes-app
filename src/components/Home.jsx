@@ -3,77 +3,88 @@ import {NotesList} from './NotesList'
 import {Search } from './Search'
 import {nanoid} from 'nanoid'
 import {Header} from './Header'
+import moment from 'moment'
 import db from '../firebase/firebase_config' 
-import {collection, getDocs, addDoc} from '../firebase/firebase_config'
+import {collection, getDocs, addDoc, doc, getDoc, setDoc, updateDocs, deleteDoc} from '../firebase/firebase_config'
 
 function Home({userEmail}) {
-    const [notes, setNotes] = useState([])
+    const [notes, setNotes] = useState(null)
     const [darkMode, setDarkMode] = useState(false);
     const [searchText, setSearchText] = useState('');
 
-  useEffect(()=>{
-    const notesData = async () =>{
-      const result = await getDocs(collection(db, 'notas'))
-      setNotes(result.docs.map((note) => ({id: note.id, data: note.data()})))
+
+  async function searchNotesFromDb(userId){
+    //create a doc reference
+    //const documentRef= collection(db, `notesUsers/${userId}/notes`);
+    // //search document
+    // const consulta = await getDoc(documentRef);
+    //validate document
+    const documents = await getDocs(collection(db, `notesUsers/${userId}/notes`))
+    if(documents.docs.length > 0){
+      return documents
+    }else{
+      await setDoc(doc(collection(db, `notesUsers/${userId}/notes`)),
+            {text: "example note",
+            date: new Date()} );
+      const newDocuments = await getDocs(collection(db, `notesUsers/${userId}/notes`));
+      return newDocuments
     }
-    notesData()
-  }, [notes])
+    
+    
+  }
 
-  console.log(userEmail);
+
+
+  useEffect(()=>{
+    async function searchNotes(){
+      const result = await searchNotesFromDb(userEmail);
+      //result.docs.map((note) => (console.log(note.id)))
+      setNotes(result.docs)
+      //setNotes(result.docs.map((note) => ({id: note.id, date: moment(note.data().date.toDate()).calendar() , data: note.data()})))
+    }
+    searchNotes();
+  }, [])
+
   
 
 
-  const handleDeleteNote =(id ) =>{
-    const deleteNote = (notes.filter((note) => (note.id === id?  note.id : null)))
-    // const data = doc(db, 'notas')
-    // const notesData = async () =>{
-    //   await updateDoc(data, {
-    //     [id]: deleteField()
-    //   })
-    // }
-    // notesData();
-    console.log(deleteNote);
+  async function handleDeleteNote(userId ){
+    //const deleteNote = (notes.docs.filter((note) => (note.id !== userId?  note : null)))
+    const deleteNote = (notes.filter((note) => note.id !== userId ));
+    await deleteDoc(doc(collection(db, `notesUsers/${userEmail}/notes`),`${userId}`) );
+      //update database 
+      console.log('-1 note');
+    setNotes(deleteNote)
   }
 
- 
-//   async function handleAddNote(noteText){
-//         try {
-//                 const response = await addDoc(collection(db, "notas"),{
-//                     text: noteText,
-//                     date: new Date()
-//                 });
-//                 console.log('Nota escrita con id: ', response.id);
+  async function handleAddNote(text){
+    try {
+            const response = await addDoc(collection(db, `notesUsers/${userEmail}/notes`),{
+                text: text,
+                date: new Date()
+            });
+            const result = await searchNotesFromDb(userEmail);
+     
+           setNotes(result.docs)
             
-//         } catch (error) {
-//             console.log(error);
-//         }
-//     }
-  
+    } catch (error) {
+        console.log(error);
+    }
+}
 
-
-  const addNote = (text) =>{
-    const date = new Date();
-    const newNote = {
-      id: nanoid(),
-      text: text,
-      date: date.toLocaleDateString(),
-    };
-    const newNotes = [...notes, newNote];
-    setNotes(newNotes)
-  }
+  //  function handleSearchText(){
+  //     const searchNotes = (notes.filter((note) => note.data().text === searchText ));
+  //     setNotes(searchNotes);
+  // }
     return (
         <div className={`${darkMode && 'dark-mode'}`} >
       <div className='container' >
         <Header handleToggleDarkMode={setDarkMode} />
         <Search handleSearchNote={setSearchText} /> 
-        <NotesList notes={notes} 
+        { notes?  <NotesList id={userEmail} notes={notes.filter((note) => note.data().text.toLowerCase().includes(searchText))} 
         handleDeleteNote={handleDeleteNote}
-         />
-        {/* <NotesList notes={notes.filter((note) =>(
-          note.text.toLowerCase().includes(searchText)
-        ))} 
-        handleAddNote={addNote} 
-        handleDeleteNote={handleDeleteNote} /> */}
+        handleAddNote={handleAddNote}
+         />: null}
       </div>
     </div>
     )

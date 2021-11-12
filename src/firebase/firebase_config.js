@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, Timestamp, addDoc, collection, getDocs } from 'firebase/firestore';
+import { getFirestore, Timestamp, addDoc, collection, getDocs, doc, getDoc, setDoc, updateDoc, deleteDoc } from 'firebase/firestore';
 import {
     getAuth,
     createUserWithEmailAndPassword,
@@ -38,6 +38,11 @@ export {
     GoogleAuthProvider,
     collection,
     addDoc,
-    getDocs
+    getDocs,
+    doc,
+    getDoc,
+    setDoc,
+    updateDoc,
+    deleteDoc
 }
 export default db
