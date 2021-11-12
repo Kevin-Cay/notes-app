@@ -38,7 +38,8 @@ textarea:focus {
 }
 
 .save {
-    background-color: #fff;
+    background-color: #eee;
+    color: #000;
     border: none;
     border-radius: 15px;
     padding: 5px 20px;
@@ -72,6 +73,15 @@ textarea:focus {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.themeButton {
+    color: #000;
+}
+
+.darkButton {
+    color: #fff;
+    background-color: aqua;
 }
 
 .delete-icon:hover {
@@ -135,7 +145,7 @@ textarea:focus {
     border-radius: 50px;
     padding: 0 15px;
     display: flex;
-    color: white;
+    color: #000;
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
@@ -148,6 +158,7 @@ textarea:focus {
     }
     .container {
         width: 100%;
+        margin-bottom: 35px;
     }
     .note {
         padding: 1rem;
@@ -165,5 +176,8 @@ textarea:focus {
     }
     .theme {
         font-size: 13px;
+    }
+    textarea {
+        font-size: 16px;
     }
 }

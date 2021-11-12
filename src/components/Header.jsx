@@ -8,7 +8,7 @@ export const Header = ({handleToggleDarkMode, darkMode}) => {
             <h1>Notes</h1>
             <div className="headerOptions" >
             <button 
-            className='theme headerbutton' 
+            className={`theme ${darkMode? "darkButton": "themeButton" }`}  
             onClick={() => 
                 handleToggleDarkMode((previousDarkMode) => !previousDarkMode) }  
             >

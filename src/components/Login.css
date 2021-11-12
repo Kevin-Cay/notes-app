@@ -54,7 +54,9 @@ button {
     border: 1.5px black solid;
     background-color: #84b6f4;
     cursor: pointer;
+    color: #fff;
     margin-bottom: 5px;
+    border-radius: 5px;
 }
 
 .googleButton {

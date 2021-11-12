@@ -52,7 +52,7 @@ export const Log = () => {
                             id="email" 
                             name="email" 
                             placeholder="example@gmail.com"
-                            style={{padding:"10px"}}
+                            style={{padding:"10px", fontSize:"18px"}}
                             />
 
                             <label htmlFor="email">Password</label>
@@ -61,7 +61,7 @@ export const Log = () => {
                             name="pass"
                             placeholder="password"
                             type="password"
-                            style={{padding:"10px"}}
+                            style={{padding:"10px", fontSize:"18px"}}
                             />
                             <button className="buttonSubmit" type="submit"  >{signUp? "Create Account": "Login"}</button>
                             
