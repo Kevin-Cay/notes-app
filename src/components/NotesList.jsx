@@ -3,7 +3,7 @@ import { AddNote } from './AddNote'
 import { Note } from './Note'
 import moment from 'moment'
 
-export const NotesList = ({notes, handleAddNote, handleDeleteNote}) => {
+export const NotesList = ({notes, darkMode, handleAddNote, handleDeleteNote}) => {
 
     //notes.docs.map((doc) =>( console.log(doc.data().date, doc.data().text)))
     
@@ -14,6 +14,7 @@ export const NotesList = ({notes, handleAddNote, handleDeleteNote}) => {
             {  notes.map((note) =>(
                 <Note 
                 id={note.id} 
+                darkMode={darkMode}
                 text={note.data().text} 
                 date={moment(note.data().date.toDate()).calendar()}  
                 handleDeleteNote={handleDeleteNote}

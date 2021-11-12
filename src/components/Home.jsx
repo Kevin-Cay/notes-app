@@ -81,9 +81,12 @@ function Home({userEmail}) {
       <div className='container' >
         <Header darkMode={darkMode} handleToggleDarkMode={setDarkMode} />
         <Search handleSearchNote={setSearchText} /> 
-        { notes?  <NotesList id={userEmail} notes={notes.filter((note) => note.data().text.toLowerCase().includes(searchText))} 
+        { notes?  <NotesList 
+        id={userEmail} 
+        notes={notes.filter((note) => note.data().text.toLowerCase().includes(searchText))} 
         handleDeleteNote={handleDeleteNote}
         handleAddNote={handleAddNote}
+        darkMode={darkMode}
          />: null}
       </div>
     </div>
