@@ -25,6 +25,11 @@ code {
 
 .note.new {
     background-color: #b2e2f2;
+    box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.03);
+}
+
+.new-note {
+    box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.03);
 }
 
 textarea {
@@ -60,7 +65,7 @@ textarea:focus {
     flex-direction: column;
     justify-content: space-between;
     white-space: pre-wrap;
-    box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.03);
 }
 
 .note>span {
@@ -127,7 +132,7 @@ textarea:focus {
     background-color: #e1e1e1b6;
     border: none;
     border-radius: 15px;
-    padding: 5px 10px;
+    padding: 10px 20px;
     cursor: pointer;
     font-size: 15px;
 }
@@ -141,15 +146,18 @@ textarea:focus {
 }
 
 .signoutbutton {
-    background-color: red;
-    border-radius: 50px;
-    padding: 0 15px;
-    display: flex;
-    color: #000;
-    align-items: center;
-    justify-content: space-between;
+    border: none;
+    border-radius: 15px;
+    padding: 10px 20px;
     cursor: pointer;
+    font-size: 15px;
+    background-color: red;
+    color: #000;
     margin-left: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
 }
 
 @media screen and (max-width: 680px) {

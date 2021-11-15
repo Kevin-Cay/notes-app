@@ -27,13 +27,13 @@ export const AddNote = ({handleAddNote}) => {
     
 
     return (
-        <div className='note new'>
+        <div className='note new new-note'>
             <textarea 
             cols="10" 
             rows="8"
             value={noteText}
             onChange={handleChange} 
-            placeholder='Type to add a note here...' 
+            placeholder='Type here to add a note...' 
             ></textarea>
             <VscDebugRestart size={"1.5rem"} style={{cursor: "pointer"}}  onClick={handleResetText} />
             <div className="note-footer">

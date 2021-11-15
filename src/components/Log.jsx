@@ -23,8 +23,8 @@ export const Log = () => {
             }    
     }
 
-    const SignInWithGoogle =() =>{
-        signInWithRedirect(auth, googleProvider)
+    async function SignInWithGoogle(){
+        await signInWithRedirect(auth, googleProvider)
     }
 
     return (

@@ -14,8 +14,8 @@ export const Header = ({handleToggleDarkMode, darkMode}) => {
             >
                 Theme {darkMode? "🌞" :"🌙" }
             </button>
-            <div className="signoutbutton" onClick={() => (signOut(auth), console.log("user out")) } >
-                <AiOutlineCloseCircle />
+            <div className=" signoutbutton" onClick={() => (signOut(auth), console.log("user out")) } >
+                <AiOutlineCloseCircle   />
                     Log Out 
             </div>
             </div>  
