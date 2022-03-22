@@ -1,6 +1,7 @@
 import React from 'react'
 import {auth, signOut} from '../firebase/firebase_config'
 import{ AiOutlineCloseCircle} from 'react-icons/ai'
+import {BiLogOutCircle} from 'react-icons/bi'
 
 export const Header = ({handleToggleDarkMode, darkMode}) => {
     return (
@@ -12,11 +13,11 @@ export const Header = ({handleToggleDarkMode, darkMode}) => {
             onClick={() => 
                 handleToggleDarkMode((previousDarkMode) => !previousDarkMode) }  
             >
-                Theme {darkMode? "🌞" :"🌙" }
+            {darkMode? "🌞" :"🌙" }
             </button>
             <div className=" signoutbutton" onClick={() => (signOut(auth), console.log("user out")) } >
-                <AiOutlineCloseCircle   />
-                    Log Out 
+                <BiLogOutCircle size={'2em'}  />
+
             </div>
             </div>  
             

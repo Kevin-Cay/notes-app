@@ -8,7 +8,7 @@ import {
     signOut,
     signInWithRedirect,
     GoogleAuthProvider,
-
+    sendPasswordResetEmail
 } from 'firebase/auth'
 
 const firebaseConfig = {
@@ -20,7 +20,6 @@ const firebaseConfig = {
     appId: process.env.REACT_APP_FIREBASE_APPID,
     measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENTID
 };
-
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
@@ -43,6 +42,7 @@ export {
     getDoc,
     setDoc,
     updateDoc,
-    deleteDoc
+    deleteDoc,
+    sendPasswordResetEmail
 }
 export default db

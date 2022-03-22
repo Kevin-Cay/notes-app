@@ -4,15 +4,16 @@ import { Note } from './Note'
 import moment from 'moment'
 
 export const NotesList = ({notes, darkMode, handleAddNote, handleDeleteNote}) => {
-
-    //notes.docs.map((doc) =>( console.log(doc.data().date, doc.data().text)))
+    notes.map(note => console.log(note.id, note.data().text))
+  console.log(notes)
     
     return (
-      //setNotes(result.docs.map((note) => ({id: note.id, date: moment(note.data().date.toDate()).calendar() , data: note.data()})))
+    
 
         <div className='notes-list' >
             {  notes.map((note) =>(
                 <Note 
+                key={note.id}
                 id={note.id} 
                 darkMode={darkMode}
                 text={note.data().text} 

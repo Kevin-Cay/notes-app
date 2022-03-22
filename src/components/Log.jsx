@@ -1,29 +1,50 @@
 import React, {useState} from 'react'
 import noteImage from '../images/noteImage.png'
 import { Formik, Field, Form } from 'formik';
-import {auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithRedirect, GoogleAuthProvider} from '../firebase/firebase_config';
+import {auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithRedirect, GoogleAuthProvider, sendPasswordResetEmail} from '../firebase/firebase_config';
 import {FcGoogle} from 'react-icons/fc'
 import './Login.css'
 
-export const Log = () => {
+
+export const Log = ({setLoading}) => {
     const [signUp, setSignUp] = useState(false)
     const [error, setError] = useState("");
 
     const googleProvider = new GoogleAuthProvider();
 
     async function handleSubmit(values){
+            
+        try {
             const email = values.email;
             const password = values.pass;
-
             if(signUp){
-            await createUserWithEmailAndPassword(auth, email, password);
-            }else{
-            await signInWithEmailAndPassword(auth, email, password)
-            }    
+                await createUserWithEmailAndPassword(auth, email, password);
+                
+                }else{
+                await signInWithEmailAndPassword(auth, email, password)
+                }
+            setLoading(false);
+        } catch (error) {
+            console.log(error)
+            setError(error.message)
+        }
+                
     }
+
+    async function resetPassword(){
+        const email = document.getElementById("email").value;
+        try {
+            await sendPasswordResetEmail(auth,  email);
+        } catch (error) {
+            setError(error.message)
+            console.log(error)
+        }
+    }
+
 
     async function SignInWithGoogle(){
         await signInWithRedirect(auth, googleProvider)
+        setLoading(false);
     }
 
     return (
@@ -66,9 +87,12 @@ export const Log = () => {
                         </Form>
                         
                 </Formik>
-                            <button onClick={() => (setSignUp(!signUp))} >
+                            <button onClick={() => (setSignUp(!signUp), setError(''))} >
                                 {signUp? "You have an account? Login": "Don't have an account? Sign up"}
                             </button>
+                            {
+                                signUp? '': <button onClick={resetPassword} > Reset your password </button>
+                            }
                             <button className="googleButton" onClick={SignInWithGoogle} >
                                 <FcGoogle /> Login with Google
                             </button>

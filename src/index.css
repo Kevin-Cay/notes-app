@@ -115,9 +115,14 @@ textarea:focus {
 
 .header {
     padding-top: 25px;
+    margin-bottom: 1em;
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.header>h1 {
+    font-size: 2.5rem;
 }
 
 .dark-mode {
@@ -129,6 +134,9 @@ textarea:focus {
 }
 
 .theme {
+    max-height: 50px;
+    max-width: 250px;
+    display: flex;
     background-color: #e1e1e1b6;
     border: none;
     border-radius: 15px;
@@ -147,10 +155,10 @@ textarea:focus {
 
 .signoutbutton {
     border: none;
-    border-radius: 15px;
-    padding: 10px 20px;
+    border-radius: 50%;
+    padding: 10px;
     cursor: pointer;
-    font-size: 15px;
+    font-size: 10px;
     background-color: red;
     color: #000;
     margin-left: 15px;
@@ -160,13 +168,27 @@ textarea:focus {
     margin-bottom: 5px;
 }
 
+.signoutbutton:hover {
+    background-color: #ff0000b6;
+    color: #ccc;
+}
+
+.spinner-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 @media screen and (max-width: 680px) {
     .header {
-        height: 50px;
+        height: 75px;
     }
     .container {
         width: 100%;
         margin-bottom: 35px;
+        padding: 0 0;
     }
     .note {
         padding: 1rem;
@@ -178,11 +200,16 @@ textarea:focus {
     .signoutbutton {
         background-color: red;
         border-radius: 50px;
-        padding: 0 10px;
-        font-size: 13px;
+        padding: 10px;
         margin-left: 5px;
     }
     .theme {
+        max-height: 50px;
+        max-width: 250px;
+        display: flex;
+        align-items: center;
+        padding: 0 10px;
+        cursor: pointer;
         font-size: 13px;
     }
     textarea {
