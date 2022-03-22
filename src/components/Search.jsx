@@ -1,6 +1,5 @@
 import React from 'react'
 import { MdSearch } from 'react-icons/md'
-import {AiFillCloseCircle} from 'react-icons/ai'
 
 
 export const Search = ({handleSearchNote}) => {

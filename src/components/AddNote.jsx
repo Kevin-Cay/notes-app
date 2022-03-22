@@ -1,7 +1,5 @@
 import React, {useState} from 'react'
 import {VscDebugRestart} from 'react-icons/vsc'
-import db from '../firebase/firebase_config'
-import {collection, addDoc} from "../firebase/firebase_config";
 
 export const AddNote = ({handleAddNote}) => {
     const [noteText, setNoteText] = useState('')

@@ -1,7 +1,6 @@
-import React, {useState, useRef} from 'react'
+import React, {useState} from 'react'
 import noteImage from '../images/noteImage.png'
 import { Formik, Field, Form } from 'formik';
-import * as Yup from 'yup';
 import {auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithRedirect, GoogleAuthProvider} from '../firebase/firebase_config';
 import {FcGoogle} from 'react-icons/fc'
 import './Login.css'
@@ -17,9 +16,9 @@ export const Log = () => {
             const password = values.pass;
 
             if(signUp){
-                const user = await createUserWithEmailAndPassword(auth, email, password);
+            await createUserWithEmailAndPassword(auth, email, password);
             }else{
-                const user = await signInWithEmailAndPassword(auth, email, password)
+            await signInWithEmailAndPassword(auth, email, password)
             }    
     }
 
@@ -33,7 +32,6 @@ export const Log = () => {
                 <div className="imgContainer" >
                 <img src={noteImage} alt="" />
                 </div>
-                
                 <h1>{signUp? "Sign Up" : "Login"  }</h1>
                 {error && <p className='error' >{error}</p>}
                 <Formik
