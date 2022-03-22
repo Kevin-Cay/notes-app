@@ -3,13 +3,13 @@ import { AddNote } from './AddNote'
 import { Note } from './Note'
 import moment from 'moment'
 
+/**
+ * 
+ * @param {array, theme, function, function} param0 
+ * @returns elements of the notes list
+ */
 export const NotesList = ({notes, darkMode, handleAddNote, handleDeleteNote}) => {
-    notes.map(note => console.log(note.id, note.data().text))
-  console.log(notes)
-    
     return (
-    
-
         <div className='notes-list' >
             {  notes.map((note) =>(
                 <Note 

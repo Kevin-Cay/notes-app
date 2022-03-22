@@ -1,10 +1,19 @@
 import React, {useState} from 'react'
 import {VscDebugRestart} from 'react-icons/vsc'
 
+/**
+ * 
+ * @param {function} param0 function to add a new note in the database
+ * @returns component to create a new note
+ */
 export const AddNote = ({handleAddNote}) => {
     const [noteText, setNoteText] = useState('')
     const characterLimit = 200
 
+    /**
+     * 
+     * @param {Event} e to get the value of the textarea 
+     */
     const handleChange = (e)=>{
         e.preventDefault()
         if(characterLimit - e.target.value.length >= 0 ){
@@ -12,15 +21,20 @@ export const AddNote = ({handleAddNote}) => {
         }
     }
 
+    /**
+     * To reset the value of the textarea
+     */
     const handleResetText = () =>{
         setNoteText('')
     }
 
-    async function handleSaveClick(){
+    /**
+     * @description To add the note to the list with a button
+     */
+    function handleSaveClick(){
                 handleAddNote(noteText)
-                console.log('Send text ');
-                setNoteText('')
-         
+                // console.log('Send text ');
+                setNoteText('') 
     }
     
 

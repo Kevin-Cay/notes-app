@@ -2,6 +2,11 @@ import React from 'react'
 import './PopupStyle.css'
 import{AiFillCloseCircle} from 'react-icons/ai'
 
+/**
+ * 
+ * @param {function, id, theme, variable, function} param0 function to delete the note, id, theme, value if is open the Popup, function to change the state of the Popup
+ * @returns 
+ */
 const Popup = ({handleDeleteNote,
     id, 
     darkMode,

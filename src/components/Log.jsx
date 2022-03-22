@@ -12,6 +12,10 @@ export const Log = ({setLoading}) => {
 
     const googleProvider = new GoogleAuthProvider();
 
+    /**
+     * 
+     * @param {Object} values to get the values of the form (email and password) 
+     */
     async function handleSubmit(values){
             
         try {
@@ -31,6 +35,9 @@ export const Log = ({setLoading}) => {
                 
     }
 
+    /**
+     * To send the reset password email
+     */
     async function resetPassword(){
         const email = document.getElementById("email").value;
         try {
@@ -41,7 +48,9 @@ export const Log = ({setLoading}) => {
         }
     }
 
-
+    /**
+     * To sign i with google
+     */
     async function SignInWithGoogle(){
         await signInWithRedirect(auth, googleProvider)
         setLoading(false);
