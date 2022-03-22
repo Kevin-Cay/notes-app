@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/notes-app/static/css/main.a41d9cbc.chunk.css",
-    "main.js": "/notes-app/static/js/main.e7c283c9.chunk.js",
-    "main.js.map": "/notes-app/static/js/main.e7c283c9.chunk.js.map",
+    "main.css": "/notes-app/static/css/main.6a74e12c.chunk.css",
+    "main.js": "/notes-app/static/js/main.8f654b09.chunk.js",
+    "main.js.map": "/notes-app/static/js/main.8f654b09.chunk.js.map",
     "runtime-main.js": "/notes-app/static/js/runtime-main.1adbff72.js",
     "runtime-main.js.map": "/notes-app/static/js/runtime-main.1adbff72.js.map",
-    "static/js/2.381a123e.chunk.js": "/notes-app/static/js/2.381a123e.chunk.js",
-    "static/js/2.381a123e.chunk.js.map": "/notes-app/static/js/2.381a123e.chunk.js.map",
+    "static/js/2.857996b7.chunk.js": "/notes-app/static/js/2.857996b7.chunk.js",
+    "static/js/2.857996b7.chunk.js.map": "/notes-app/static/js/2.857996b7.chunk.js.map",
     "index.html": "/notes-app/index.html",
-    "static/css/main.a41d9cbc.chunk.css.map": "/notes-app/static/css/main.a41d9cbc.chunk.css.map",
-    "static/js/2.381a123e.chunk.js.LICENSE.txt": "/notes-app/static/js/2.381a123e.chunk.js.LICENSE.txt",
+    "static/css/main.6a74e12c.chunk.css.map": "/notes-app/static/css/main.6a74e12c.chunk.css.map",
+    "static/js/2.857996b7.chunk.js.LICENSE.txt": "/notes-app/static/js/2.857996b7.chunk.js.LICENSE.txt",
     "static/media/noteImage.a4a8b030.png": "/notes-app/static/media/noteImage.a4a8b030.png"
   },
   "entrypoints": [
     "static/js/runtime-main.1adbff72.js",
-    "static/js/2.381a123e.chunk.js",
-    "static/css/main.a41d9cbc.chunk.css",
-    "static/js/main.e7c283c9.chunk.js"
+    "static/js/2.857996b7.chunk.js",
+    "static/css/main.6a74e12c.chunk.css",
+    "static/js/main.8f654b09.chunk.js"
   ]
 }
